@@ -18,7 +18,8 @@ from django.urls import path
 from AppCoder.views import mostrar_mi_template
 from AppCoder.views import mostrar_tareas, mostrar_personas,cargar_personas,BuscarPersonas
 from SocialTravel.views import index,PostList, PostDetail, PostCreate, PostUpdate,PostDelete,SignUp,Login,Logout
-
+from django.conf import settings
+from django.conf.urls.static import static 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,5 +36,7 @@ urlpatterns = [
     path('signup',SignUp.as_view(),name="signup"),
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
+
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
