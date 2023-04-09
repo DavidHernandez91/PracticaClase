@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from AppCoder.views import mostrar_mi_template
 from AppCoder.views import mostrar_tareas, mostrar_personas,cargar_personas,BuscarPersonas
-from SocialTravel.views import index,PostList, PostDetail, PostCreate, PostUpdate,PostDelete,SignUp,Login,Logout
+from SocialTravel.views import index,PostList, PostDetail, PostCreate, PostUpdate,PostDelete,SignUp,Login,Logout,ProfileUpdate
 from django.conf import settings
 from django.conf.urls.static import static 
 
@@ -36,6 +36,7 @@ urlpatterns = [
     path('signup',SignUp.as_view(),name="signup"),
     path('login/', Login.as_view(), name="login"),
     path('logout/', Logout.as_view(), name="logout"),
+    path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
 
 ]
 

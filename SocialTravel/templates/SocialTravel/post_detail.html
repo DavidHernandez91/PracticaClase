@@ -3,8 +3,10 @@
 {% block main %}
 
 <p>
-    {{object.heading}}
+    <h1>{{object.heading}}</h1>
     <br>
+    <img src="{{ object.imagem.url }}" width="320px" height="100%">
+    <br> 
     {{object.description}}
     <br>
     <a href="{% url 'post-list' %}">volver</a>

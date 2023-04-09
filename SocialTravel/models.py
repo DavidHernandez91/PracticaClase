@@ -12,3 +12,7 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.id} - {self.heading}"
 
+class Profile(models.Model):
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="profile")
+    instagram = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to="profiles", null=True, blank=True)
