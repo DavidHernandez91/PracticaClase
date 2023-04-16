@@ -8,7 +8,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def index(request):
-    return render(request,"SocialTravel/index.html")
+    context = {
+        "posts": Post.objects.all()
+    }
+    return render(request,"SocialTravel/index.html",context)
 
 class PostList(ListView):
     model = Post
